@@ -1,0 +1,115 @@
+/* Global styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #1e1e1e; /* Dark background */
+    color: #c7c7c7; /* Light grey text for contrast */
+    margin: 0;
+    padding: 20px; /* Sufficient padding but not too much */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center children vertically */
+}
+
+/* Title styling for a modern look */
+h1 {
+    text-align: left;
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-left: 20px; /* Align with the boxes */
+}
+
+
+/* Container for text areas */
+.container {
+    display: flex;
+    flex-grow: 1; /* Allow container to grow and fill available space */
+    gap: 5%; /* Use percentage for responsive gap */
+    width: 100%; /* Set width to almost full-screen */
+    align-items: stretch; /* Stretch children vertically */
+}
+
+/* Shared textarea styles */
+textarea {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    padding: 15px;  
+    flex: 1;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    background-color: #252526; /* Slightly lighter than the body for contrast */
+    color: #dcdcdc; /* Lighter text color for readability */
+    border: 1px solid #3c3c3c; /* Dark border for depth */
+    border-radius: 5px;
+    resize: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for the code input area */
+.code-input textarea {
+    background-color: #1e1e1e;
+}
+
+/* Styling for the code output area to look non-interactive */
+.code-output {
+    background-color: #252526; /* Dark grey background */
+    color: #dcdcdc; /* Lighter text color for readability */
+    border: 1px solid #3c3c3c; /* Dark border for depth */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    overflow-y: auto; /* Allows scrolling if content is too long */
+    flex: 1;
+    min-height: 300px; /* Matches the textarea min-height */
+}
+
+.code-output * {
+    user-select: none;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 95%; /* Slightly narrower on small screens */
+        gap: 20px; /* Smaller gap on small screens */
+    }
+
+    .button-container {
+        margin-top: 10px; /* Less space on small screens */
+    }
+}
+
+/* Button container */
+.button-container {
+    text-align: center; /* Centers the button */
+    margin-top: 20px; /* Space from the text boxes to the button */
+    margin-bottom: 20px;
+}
+
+/* Modern button style */
+button {
+    background-color: #0a84ff; /* Bright color for the button */
+    color: #ffffff;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Smooth background and transform transition for hover effect */
+}
+
+button:hover, button:focus {
+    background-color: #0077cc; /* Darker shade for hover state */
+    transform: translateY(-2px); /* Slightly raise the button on hover/focus */
+}
+
+/* Add more interactive elements as needed */
+
+html, body {
+    height: 100%;
+}

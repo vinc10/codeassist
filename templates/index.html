@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Assist</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Code Assist</h1>
+    <div class="container">
+        <div class="input-container">
+            <div class="code-input">
+                <textarea id="user-code" placeholder="Paste your code here..."></textarea>
+            </div>
+            <div class="button-container">
+                <button id="submit-code">Improve Code</button>
+            </div>
+        </div>
+        <div class="code-output">
+            <!-- Use a pre tag if you want to preserve whitespace and formatting -->
+            <pre id="llm-output">LLM output will be here...</pre>
+            <!-- Or a div tag if you plan to handle formatting differently -->
+            <!-- <div id="llm-output">LLM output will be here...</div> -->
+        </div>
+    </div>
+    
+
+    
+    
+
+
+    <!-- Room for javascript file -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

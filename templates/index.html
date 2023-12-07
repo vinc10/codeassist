@@ -1,36 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Code Assist</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
     <h1>Code Assist</h1>
     <div class="container">
-        <div class="input-container">
-            <div class="code-input">
-                <textarea id="user-code" placeholder="Paste your code here..."></textarea>
-            </div>
-            <div class="button-container">
-                <button id="submit-code">Improve Code</button>
-            </div>
+      <div class="code-input">
+        <textarea
+          id="user-code"
+          placeholder="Paste your code here..."
+        ></textarea>
+        <div class="button-container">
+          <button id="submit-code">Improve Code</button>
         </div>
-        <div class="code-output">
-            <!-- Use a pre tag if you want to preserve whitespace and formatting -->
-            <pre id="llm-output">LLM output will be here...</pre>
-            <!-- Or a div tag if you plan to handle formatting differently -->
-            <!-- <div id="llm-output">LLM output will be here...</div> -->
-        </div>
+      </div>
+      <div class="code-output">
+        <div id="llm-output">LLM output will appear here...</div>
+      </div>
     </div>
-    
 
-    
-    
+    <script>
+      document
+        .getElementById("submit-code")
+        .addEventListener("click", function () {
+          var userCode = document.getElementById("user-code").value;
+          fetch("/improve-code", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ code: userCode }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              var formattedText = data.improved_code;
 
+              // Wrap text in pre tags to preserve newlines
+              formattedText = "<pre>" + formattedText + "</pre>";
 
-    <!-- Room for javascript file -->
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
+              // Replace Markdown code block syntax with HTML tags
+              formattedText = formattedText
+                .replace(/```python/g, "<code>")
+                .replace(/```/g, "</code>");
+
+              // Update the llm-output element with the formatted text
+              var outputDiv = document.getElementById("llm-output");
+              outputDiv.innerHTML = formattedText;
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        });
+    </script>
+  </body>
 </html>

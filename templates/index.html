@@ -21,7 +21,7 @@
           autofocus
         ></textarea>
         <div class="button-container">
-          <button id="submit-code">Improve Code</button>
+          <button id="submit-code">Fix Code</button>
         </div>
       </div>
       <div class="code-output">
@@ -30,6 +30,25 @@
         <div id="llm-output">Recommended improvements will appear here...</div>
       </div>
     </div>
+    <footer>
+      <div class="instructions">
+        <h2>How to Use Code Assistant</h2>
+        <p>
+          This tool is designed to help you improve your code with suggestions
+          from a Large Language Model (LLM). Simply paste your code into the
+          "Your Code" text area and click the "Fix Code" button. The AI will
+          analyze your code and provide recommendations for improvements and
+          corrections in the "Recommended Improvements" section. If your code is
+          already in good shape, the AI will let you know that no changes are
+          necessary.<br /><br />
+          The code assistant was created by Vincent Bohman for Gothenburg
+          University.
+          <a href="https://github.com/vinc10/codeassist" target="_blank"
+            >https://github.com/vinc10/codeassist</a
+          >
+        </p>
+      </div>
+    </footer>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>

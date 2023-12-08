@@ -1,37 +1,37 @@
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
-  background-color: #1e1e1e; /* Dark background */
-  color: #c7c7c7; /* Light grey text for contrast */
+  background-color: #1e1e1e;
+  color: #c7c7c7;
   margin: 0;
-  padding: 20px; /* Sufficient padding but not too much */
+  padding: 20px;
   display: flex;
-  flex-direction: column; /* Stack children vertically */
-  justify-content: center; /* Center children vertically */
+  flex-direction: column;
+  justify-content: center;
 }
 
 h1 {
   text-align: left;
   font-size: 2.5em;
-  color: #e0e0e0; /* A light grey color for high contrast on the dark background */
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* A subtle shadow to lift the text off the background */
-  letter-spacing: 1px; /* Increase letter-spacing to make it more airy and modern */
-  font-weight: 700; /* Increase weight for boldness */
+  color: #e0e0e0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+  font-weight: 700;
 }
 
 .input-label,
 .output-label {
-  font-weight: bold; /* Makes the label text bold */
-  margin-bottom: 5px; /* Spacing between label and textarea */
-  display: block; /* Ensures it takes up the full width */
-  color: #f8f8f2; /* Light color for visibility against a dark background */
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+  color: #f8f8f2;
 }
 
 /* Container for input, button and output */
 .container {
   display: flex;
-  gap: 5%; /* Use percentage for responsive gap */
-  width: 95%; /* Set width to almost full-screen */
-  align-items: stretch; /* Stretch children vertically */
+  gap: 5%;
+  width: 95%;
+  align-items: stretch;
 }
 
 /* Code text input area */
@@ -57,7 +57,7 @@ textarea {
 .code-output {
   background-color: #252526;
   color: #dcdcdc;
-  border: 1px solid #3c3c3c; /* Dark border for depth */
+  border: 1px solid #3c3c3c;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 15px;
@@ -67,13 +67,11 @@ textarea {
   flex: 2;
 }
 
-/* Button container */
 .button-container {
-  text-align: center; /* Centers the button */
+  text-align: center;
   margin-top: 20px;
 }
 
-/* Modern button style */
 button {
   background-color: #004a8d;
   background-image: linear-gradient(
@@ -101,13 +99,13 @@ button:focus {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* TO DO: Improve the pre */
 pre {
-  white-space: pre-wrap; /* Wraps the text */
-  word-break: break-word; /* To prevent horizontal overflow */
-  background-color: #333; /* Dark background for visibility */
-  color: #f8f8f2; /* Light text color for contrast */
+  white-space: pre-wrap;
+  background-color: #333;
+  color: #f8f8f2;
   padding: 1em;
-  margin: 0; /* Adjust as necessary */
+  margin: 0;
   overflow-x: auto; /* Horizontal scrolling if needed */
   border-radius: 5px;
 }
@@ -116,11 +114,11 @@ code {
   font-family: "Courier New", monospace;
   background-color: #2d2d2d;
   border: 1px solid #ccc;
-  display: block; /* To ensure it takes up the full width inside pre */
+  display: block;
   padding: 0.5em;
-  margin: 0; /* Adjust as necessary */
-  overflow-x: auto; /* Horizontal scrolling if needed */
-  white-space: pre; /* Maintains formatting for code */
+  margin: 0;
+  overflow-x: auto;
+  white-space: pre;
 }
 
 /* Responsive design adjustments */
@@ -134,4 +132,36 @@ code {
   .button-container {
     margin-top: 10px; /* Less space on small screens */
   }
+}
+
+/* Existing CSS rules */
+
+/* Footer and instructions styles */
+footer {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #2d2d2d; /* Slightly different background for contrast */
+  color: #f8f8f2; /* Light text color for readability */
+  border-radius: 5px;
+}
+
+footer a {
+  color: #0a84ff;
+  text-decoration: none;
+}
+
+footer a:hover,
+footer a:focus {
+  color: #4db8ff; /* Lighter blue color for hover */
+  text-decoration: underline; /* Underline link on hover/focus for indication */
+}
+
+.instructions h2 {
+  font-size: 1.5em; /* Slightly larger font size for the title */
+  margin-bottom: 0.5em;
+}
+
+.instructions p {
+  font-size: 1em;
+  line-height: 1.6;
 }

@@ -27,3 +27,9 @@ document.getElementById("submit-code").addEventListener("click", function () {
       console.error("Error:", error);
     });
 });
+// Double click to select entire text input box
+document
+  .getElementById("user-code")
+  .addEventListener("dblclick", function (event) {
+    event.target.select();
+  });

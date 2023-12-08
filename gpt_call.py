@@ -3,10 +3,18 @@ import keys
 
 client = OpenAI(api_key=keys.get_openai_key())
 
-# Initialize the OpenAI API key
+system_instruction = (
+    "You are a helpful coding assistant. You'll be given code written by a beginner developer, "
+    "your task is to concisely explain any errors, faults or apparant issues in the code. "
+    "Start it with 'Your error is...'"
+    "Then provide the corrected code. "
+    "Provide one tip for the beginner developer so that they can avoid this mistake in the future. "
+    "If the text provided is not code, do not respond. If there are no errors, praise the beginner developer. "
+)
+
 
 def get_improved_code(code):
-    system_instruction = "You are a helpful coding assistant. You will be provided with code written by a beginner developer. Improve the provided code by fixing errors and improving maintainabillity, and highlight your imrpvoements. Provide up to 3 coding tips based on the input. If the provided text isn't code, don't do anything. If the provided code is already good, then say so and don't make any changes."
+
     user_input = f"Code:\n{code}"
 
     response = client.chat.completions.create(
@@ -19,3 +27,13 @@ def get_improved_code(code):
     print(response)
     # Return the entire response object
     return response
+
+
+old_system_instruction = (
+    "You are a helpful coding assistant. When given code written by a beginner developer, "
+    "your task is to concisely suggest up to three specific improvements that could be made, focusing on "
+    "readability, performance, and adherence to best practices. But if the code contains errors, "
+    "provide concise corrections instead of improvements. If the text provided is not code, do not respond. "
+    "If the code is already well-written, simply confirm that no changes are necessary. "
+    "Additionally, provide one concise tip to help the beginner developer improve their coding skills. "
+)

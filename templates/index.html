@@ -3,61 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Code Assist</title>
+    <title>Code Assistant</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
     />
   </head>
   <body>
-    <h1>Code Assist</h1>
+    <h1>Code Assistant</h1>
     <div class="container">
       <div class="code-input">
+        <div class="input-label">Your code:</div>
+        <!-- Label for the code input -->
         <textarea
           id="user-code"
           placeholder="Paste your code here..."
+          autofocus
         ></textarea>
         <div class="button-container">
           <button id="submit-code">Improve Code</button>
         </div>
       </div>
       <div class="code-output">
-        <div id="llm-output">LLM output will appear here...</div>
+        <div class="output-label">Recommended improvements:</div>
+        <!-- Label for the code output -->
+        <div id="llm-output">Recommended improvements will appear here...</div>
       </div>
     </div>
 
-    <script>
-      document
-        .getElementById("submit-code")
-        .addEventListener("click", function () {
-          var userCode = document.getElementById("user-code").value;
-          fetch("/improve-code", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ code: userCode }),
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              var formattedText = data.improved_code;
-
-              // Wrap text in pre tags to preserve newlines
-              formattedText = "<pre>" + formattedText + "</pre>";
-
-              // Replace Markdown code block syntax with HTML tags
-              formattedText = formattedText
-                .replace(/```python/g, "<code>")
-                .replace(/```/g, "</code>");
-
-              // Update the llm-output element with the formatted text
-              var outputDiv = document.getElementById("llm-output");
-              outputDiv.innerHTML = formattedText;
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-            });
-        });
-    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>
 </html>
